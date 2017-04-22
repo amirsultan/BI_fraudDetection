@@ -13,3 +13,28 @@ plt.title("Fraud class histogram")
 plt.xlabel("Class")
 plt.ylabel("Frequency")
 
+
+" Summarizing Data
+print data.describe()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Defining depedent and indepdent varaible 
+
+X = data.ix[:, data.columns != 'Class']
+y = data.ix[:, data.columns == 'Class']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Splitting data into train and test set
+
+
+from sklearn.cross_validation import train_test_split
+
+# Complete  dataset
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 0)
+
+print("Number transactions train dataset: ", len(X_train)) " 227845 "
+
+print("Number transactions test dataset: ", len(X_test))  " 56962 "
+
+print("Total number of transactions: ", len(X_train)+len(X_test)) "284807"
+
